@@ -20,6 +20,12 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+     // não fica auto incremental
+    public $incrementing = false;
+    // seta que vai ser uuid
+    protected $keyType = "uuid";
+
     protected $fillable = [
         'name',
         'email',

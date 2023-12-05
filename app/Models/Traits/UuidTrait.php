@@ -8,7 +8,7 @@ trait UuidTrait
     // automizando o uuid
     public static function booted()
     {
-        static::creatind(function($model){
+        static::creating(function($model){
             $model->{$model->getKeyName()} = (String) Str::uuid();
         });
 
