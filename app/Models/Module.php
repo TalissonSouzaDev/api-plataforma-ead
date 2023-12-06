@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Module extends Model
 {
-    use HasFactory;
+    use HasFactory,UuidTrait;
 
      // não fica auto incremental
  public $incrementing = false;
@@ -16,11 +16,18 @@ class Module extends Model
  protected $keyType = "uuid";
 
  protected $fillable = [
-    'name'
+    'name',
+    'course_id'
  ];
 
- public function course()
+    public function course()
     {
         return $this->belongsTo(Course::class);
+    }
+
+
+    public function lesson()
+    {
+        return $this->hasMany(Lesson::class);
     }
 }
