@@ -3,7 +3,8 @@
 use App\Http\Controllers\Api\{
     CourseController,
     ModuleController,
-    LessonController
+    LessonController,
+    SupportController
 };
 
 use Illuminate\Http\Request;
@@ -28,6 +29,8 @@ Route::get('/course/{id}/modules',[ModuleController::class,'index']);
 /** Aulas */
 Route::get('/modules/{id}/lessons',[LessonController::class,'index']);
 Route::get('/lessons/{id}',[LessonController::class,'show']);
+
+Route::get('/supports',[SupportController::class,'index']);
 
 
 Route::get("/", function(){
