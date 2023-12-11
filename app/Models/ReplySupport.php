@@ -6,24 +6,29 @@ use App\Models\Traits\UuidTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Module extends Model {
+class ReplySupport extends Model {
     use HasFactory, UuidTrait;
+
+    protected $table = 'reply_support';
 
     // não fica auto incremental
     public $incrementing = false;
     // seta que vai ser uuid
     protected $keyType = 'uuid';
 
+    public $touches = ['support'];
+
     protected $fillable = [
-        'name',
-        'course_id'
+        'description',
+        'support_id',
+        'user_id'
     ];
 
-    public function course() {
-        return $this->belongsTo( Course::class );
+    public function user() {
+        return $this->belongsTo( User::class );
     }
 
-    public function lesson() {
-        return $this->hasMany( Lesson::class );
+    public function support() {
+        return $this->belongsTo( Support::class );
     }
 }

@@ -7,20 +7,18 @@ use App\Http\Resources\ModuleResource;
 use App\Repositories\Modulerepository;
 use Illuminate\Http\Request;
 
-class ModuleController extends Controller
-{
+class ModuleController extends Controller {
     protected $repository;
-    public function __construct(Modulerepository $Modulerepository)
-    {
+
+    public function __construct( Modulerepository $Modulerepository ) {
         $this->repository = $Modulerepository;
-        
+
     }
 
-    public function index($courseId)
-    {
-        
-        $module = $this->repository->getModuleCourseById($courseId);
-        return ModuleResource::collection($module);
+    public function index( $courseId ) {
+
+        $module = $this->repository->getModuleCourseById( $courseId );
+        return ModuleResource::collection( $module );
 
     }
 }

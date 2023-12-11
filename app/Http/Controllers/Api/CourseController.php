@@ -7,24 +7,20 @@ use App\Http\Resources\CourseResource;
 use App\Repositories\Courserepository;
 use Illuminate\Http\Request;
 
-class CourseController extends Controller
-{
+class CourseController extends Controller {
     protected $repository;
-    public function __construct(Courserepository $courserepository)
-    {
+
+    public function __construct( Courserepository $courserepository ) {
         $this->repository = $courserepository;
-        
+
     }
 
-    public function index()
-    {
-    
-        return CourseResource::collection($this->repository->getAllCourses());
+    public function index() {
+
+        return CourseResource::collection( $this->repository->getAllCourses() );
     }
 
-
-    public function show($id)
-    {
-        return new CourseResource($this->repository->getCourse($id));
+    public function show( $id ) {
+        return new CourseResource( $this->repository->getCourse( $id ) );
     }
 }
