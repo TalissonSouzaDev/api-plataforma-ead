@@ -6,7 +6,8 @@ use App\Http\Controllers\Api\{
     LessonController,
     SupportController
 };
-use App\Http\Controllers\Api\Auth\AuthController;
+use App\Http\Controllers\Api\Auth\{AuthController,ResetPasswordController};
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,9 +21,17 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+
+// auth
 Route::post('/auth',[AuthController::class,'auth']);
 Route::post('/logout',[AuthController::class,'logout'])->middleware('auth:sanctum');
 Route::get('/me',[AuthController::class,'me'])->middleware('auth:sanctum');
+
+
+// Reset Password
+Route::get('/forgot-password',[ResetPasswordController::class,'sendResetLink'])->middleware('guest');
+Route::post('/reset-password',[ResetPasswordController::class,'resetPassword'])->middleware('guest');
 
 Route::middleware(['auth:sanctum'])->group(function(){
     /** Cursos */
