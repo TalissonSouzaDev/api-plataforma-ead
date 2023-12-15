@@ -42,6 +42,8 @@ Route::get('/course/{id}/modules',[ModuleController::class,'index']);
 /** Aulas */
 Route::get('/modules/{id}/lessons',[LessonController::class,'index']);
 Route::get('/lessons/{id}',[LessonController::class,'show']);
+
+Route::post('/lesson/viewed',[LessonController::class,'viewed']);
 /** suportes */
 Route::get('/my-supports',[SupportController::class,'mySupports']);
 Route::get('/supports',[SupportController::class,'index']);
