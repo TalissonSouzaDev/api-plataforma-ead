@@ -29,9 +29,9 @@ class SupportController extends Controller {
     }
 
 
-    public function mySupports(Request $request) {
+    public function mySupports() {
 
-        return SupportResource::collection( $this->repository->getMySupport( $request->all() ) );
+        return SupportResource::collection( $this->repository->getMySupport() );
     }
 
 

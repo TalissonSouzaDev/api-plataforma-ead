@@ -23,10 +23,10 @@ class LessonFactory extends Factory
     {
       $name = $this->faker->unique()->name();
             return [
-                'module_id' => Module::factory(),
                 'name' => $name,
                 'url' => Str::slug($name),
                 'video' => Str::random(),
+                'module_id' => Module::factory()->create()
                 
             ];
     

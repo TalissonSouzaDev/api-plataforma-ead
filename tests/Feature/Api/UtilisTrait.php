@@ -6,6 +6,13 @@ use App\Models\User;
 
 trait UtilisTrait
 {
+
+    public function createUser()
+    {
+        $user =  User::factory()->create();
+      
+        return $user;
+    }
     public function createTokenUser()
     {
         $user =  User::factory()->create();

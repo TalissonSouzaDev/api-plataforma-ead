@@ -20,7 +20,8 @@ class Support extends Model {
 
         'status',
         'description',
-        'lesson_id'
+        'lesson_id',
+        'user_id'
     ];
 
     public $statusOptions = [

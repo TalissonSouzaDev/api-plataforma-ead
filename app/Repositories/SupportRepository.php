@@ -16,7 +16,7 @@ class Supportrepository {
     }
 
 
-    public function getMySupport(array $data = [])
+    public function getMySupport()
     {
         $data['user'] =  true;
         return $this->getSupports($data);
@@ -51,7 +51,7 @@ class Supportrepository {
        
             }
         })
-        ->ordeBy('updated_at')
+        ->orderBy('updated_at')
         ->get();
 
     }

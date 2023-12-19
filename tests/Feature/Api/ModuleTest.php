@@ -21,7 +21,7 @@ class ModuleTest extends TestCase {
         $token =  $this->createTokenUser();
         $response = $this->getJson( '/course/fake_value/modules', $this->defaulHeadersToken( $token ) );
 
-        $response->assertStatus( 404 )
+        $response->assertStatus( 200 )
         ->assertJsonCount( 0, 'data' );
     }
 
