@@ -7,7 +7,7 @@ use App\Http\Controllers\Api\{
     SupportController
 };
 use App\Http\Controllers\Api\Auth\{AuthController,ResetPasswordController};
-
+use App\Models\ReplySupport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -48,7 +48,9 @@ Route::post('/lesson/viewed',[LessonController::class,'viewed']);
 Route::get('/my-supports',[SupportController::class,'mySupports']);
 Route::get('/supports',[SupportController::class,'index']);
 Route::post('/supports',[SupportController::class,'store']);
-Route::post('/supports/{id}/replies',[SupportController::class,'createReply']);
+
+
+Route::post('/supports/{id}/replies',[ReplySupport::class,'createReply']);
 
 });
 
